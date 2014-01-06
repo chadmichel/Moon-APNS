@@ -28,12 +28,11 @@ namespace MoonAPNS
         private static void Main(string[] args)
         {
             // var payload1 = new NotificationPayload("Device token","Message",Badge,"Sound");
-            var payload1 = new NotificationPayload("Device Token", "Message", 1, "default");
-            payload1.AddCustom("RegionID", "IDQ10150");
-
+            var payload1 = new NotificationPayload("c2cc30d808a0d623b8f95ac66f3abd4525ee16119d88b0055c260d81e64ad89f", "");
+            
             var p = new List<NotificationPayload> {payload1};
 
-            var push = new PushNotification(false, "p12 file location","password");
+            var push = new PushNotification(false, @"C:\dev\certs\chadtest1.p12", "panicblaster");
             var rejected = push.SendToApple(p);
             foreach (var item in rejected)
             {

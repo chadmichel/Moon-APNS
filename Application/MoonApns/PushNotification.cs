@@ -22,13 +22,19 @@ using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
-using NLog;
 
 namespace MoonAPNS
 {
+
+    public class MyLogger
+    {
+        public void Info(params object[] args) { }
+        public void Error(params object[] args) { }
+    }
+
   public class PushNotification
   {
-    private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+      private static readonly MyLogger Logger = new MyLogger();
     private TcpClient _apnsClient;
     private SslStream _apnsStream;
     private X509Certificate _certificate;
